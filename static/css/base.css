@@ -1,0 +1,73 @@
+.back{
+    background-color: whitesmoke;
+
+}
+
+
+
+a {
+    text-decoration:none;
+    color: lightgrey;
+}
+
+a:hover{
+    text-decoration:none;
+    color: white;
+}
+
+a:visited{
+
+     text-decoration:none;
+     background-color: black;
+}
+
+._nav{
+    background-color: white;
+}
+
+._nav_logout{
+    float: right;
+    padding-right: 7%;
+    padding-top: 17px;
+}
+
+._logout{
+    font-size: 30px;
+    color: black;
+
+
+}
+
+._left_bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    height: 100%;
+    width: 17%;
+
+}
+._logo_title{
+    color: whitesmoke;
+    background-color: #3c3c3c;
+    padding-left: 30px;
+    font-size: 25px;
+}
+
+._bar_content{
+    padding: 20px;
+}
+._ceng{
+    list-style-type: none;
+    color: lightgrey;
+    font-size: 20px;
+    margin-left:  -40px;
+}
+
+._ceng:hover{
+    background-color: #3c3c3c;
+}
+
+.glyphicon_con{
+    padding: 20px;
+}
