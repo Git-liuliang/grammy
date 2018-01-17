@@ -15,5 +15,14 @@ def login(request):
     else:
         return HttpResponse("aaaaaa")
 
-# def index(request):
-#     return render(request,"index.html")
+def hosts(request):
+    v = models.Inventory.objects.all()
+    print("aaaa")
+    return render(request,"hosts.html",{"host_list":v})
+
+def mod(request,nid):
+    v = request.POST
+    mod_dict = {"host":v.get("host"),"hostname":v.get("hostname"),"department":v.get("department"),"position":v.get("position"),"manager":v.get("manager")}
+    print(mod_dict)
+    models.Inventory.objects.filter(id=nid).update(**mod_dict)
+    return redirect("/hosts/")

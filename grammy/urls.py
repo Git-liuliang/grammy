@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.homepage),
     url(r'^login/',views.login),
-    # url(r'^index/',views.index)
+    url(r'^hosts/',views.hosts),
+    url(r'^mod/(\d+)/$',views.mod),
 ]

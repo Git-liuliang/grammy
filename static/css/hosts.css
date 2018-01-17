@@ -1,0 +1,14 @@
+._position{
+
+    /*height: 300px;*/
+    /*width: 600px;*/
+    margin-left: 20%;
+    margin-top: 3%;
+    margin-right: 5%;
+    /*background-color: #3c763d;*/
+}
+
+.border_error{
+    border-color: red;
+    
+}

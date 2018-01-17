@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/hosts.css">
+{% endblock %}
+{% block content %}
+
+
+    <div class="_position panel panel-primary">
+    <div class="panel-heading">Panel heading</div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+            <th>nid</th>
+            <th>host</th>
+            <th>hostname</th>
+            <th>department</th>
+            <th>position</th>
+            <th>manager</th>
+            <th>action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for obj in host_list %}
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.host }}</td>
+                <td>{{ obj.hostname }}</td>
+                <td>{{ obj.department }}</td>
+                <td>{{ obj.position }}</td>
+                <td>{{ obj.manager }}</td>
+                <td><a class="btn btn-primary edit">编辑</a> | <a class="btn btn-danger">删除</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+
+{% endblock %}
+{% block js %}
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script src="/static/js/hosts.js"></script>
+{% endblock %}
