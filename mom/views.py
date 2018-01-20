@@ -17,7 +17,11 @@ def login(request):
         return HttpResponse("aaaaaa")
 
 def hosts(request):
-    v = models.Inventory.objects.all()
+    if request.method == "POST":
+        num = int(request.POST.get("page_num"))
+        v= models.Inventory.objects.all()[0+num:5+num]
+    else:
+        v = models.Inventory.objects.all().order_by("-id")[0:5]
     return render(request,"hosts.html",{"host_list":v})
 
 def mod(request,nid):
@@ -41,3 +45,6 @@ def add(request):
     print(mod_dict)
     models.Inventory.objects.create(**mod_dict)
     return redirect("/hosts/")
+
+
+

@@ -8,7 +8,7 @@
     <div class="_position panel panel-primary">
     <div class="panel-heading"><a class="btn btn-info addshow" >添加</a></div>
     <div class="panel-body">
-        <table class="table" >
+        <table class="table table-bordered" >
             <thead>
             <tr>
             <th>nid</th>
@@ -23,18 +23,37 @@
             <tbody>
             {% for obj in host_list %}
             <tr>
-                <td id="nid"><span>{{ obj.id }}</span></td>
-                <td>{{ obj.host }}</td>
-                <td>{{ obj.hostname }}</td>
-                <td>{{ obj.department }}</td>
-                <td>{{ obj.position }}</td>
-                <td>{{ obj.manager }}</td>
-                <td id="action"><a class="btn btn-primary edit">编辑</a> | <a class="btn btn-danger del">删除</a></td>
+                <td id="nid" class="showinfo"><span>{{ obj.id }}</span></td>
+                <td class="showinfo">{{ obj.host }}</td>
+                <td class="showinfo">{{ obj.hostname }}</td>
+                <td class="showinfo">{{ obj.department }}</td>
+                <td class="showinfo">{{ obj.position }}</td>
+                <td class="showinfo">{{ obj.manager }}</td>
+                <td id="action" class="showinfo"><a class="btn btn-primary edit">编辑</a> | <a class="btn btn-danger del">删除</a></td>
             </tr>
             {% endfor %}
 
             </tbody>
         </table>
+<nav aria-label="Page navigation" class="page_nav">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#" class="page_go">1</a></li>
+    <li><a href="#" class="page_go">2</a></li>
+    <li><a href="#" class="page_go">3</a></li>
+    <li><a href="#" class="page_go">4</a></li>
+    <li><a href="#" class="page_go">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
     </div>
     </div>
 

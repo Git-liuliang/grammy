@@ -21,8 +21,8 @@
 
 
 
-td{
-
+table thead td .showinfo{
+    vertical-align: bottom;
     width: 150px;
     padding: 0;
     margin: 0;
@@ -41,4 +41,8 @@ input{
 }
 #action{
     width: 150px;
+}
+
+.page_nav{
+    float: right;
 }

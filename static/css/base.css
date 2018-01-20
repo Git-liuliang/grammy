@@ -27,7 +27,7 @@ a:visited{
 
 ._nav_logout{
     float: right;
-    padding-right: 7%;
+    padding-right: 3%;
     padding-top: 17px;
 }
 
@@ -42,6 +42,7 @@ a:visited{
     position: absolute;
     top: 0;
     left: 0;
+
     background-color: #333333;
     height: 100%;
     width: 17%;
@@ -70,4 +71,11 @@ a:visited{
 
 .glyphicon_con{
     padding: 20px;
+}
+
+.user_setting {
+    border: none;
+    margin: 10px;
+    width: 100px;
+
 }

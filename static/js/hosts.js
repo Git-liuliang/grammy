@@ -8,7 +8,7 @@ $(document).on("click", ".edit", function () {
 
     });
 
-    res = '<tr><td id="nid"><span>' + arr[0] + '</span></td><td><input  value=' + arr[1] + ' type="text"></td><td><input value=' + arr[2] + ' type="text"></td><td><input value=' + arr[3] + ' type="text"></td><td><input value=' + arr[4] + ' type="text"></td><td><input value=' + arr[5] + ' type="text"></td><td id="action"><a class="btn btn-success save">保存</a> | <a class="btn btn-danger">删除</a></td></tr>'
+    res = '<tr><td id="nid"><span>' + arr[0] + '</span></td><td><input  value=' + arr[1] + ' type="text"></td><td><input value=' + arr[2] + ' type="text"></td><td><input value=' + arr[3] + ' type="text"></td><td><input value=' + arr[4] + ' type="text"></td><td><input value=' + arr[5] + ' type="text"></td><td id="action"><a class="btn btn-success save">保存</a> | <a class="btn btn-danger del">删除</a></td></tr>'
     $(this).parent().parent().replaceWith(res);
 
 });
@@ -51,6 +51,7 @@ function vali_ajax(url,post_data) {
 $(document).on("click", ".del", function () {
 
     num = $(this).parent().siblings().find("span").text();
+
     post_data = {nid: num};
     url = "/rm/" + num + "/";
     vali_ajax(url, post_data);
@@ -60,8 +61,8 @@ $(document).on("click", ".del", function () {
 
 $(document).on("click", ".addshow", function () {
 
-    $("tbody").after('<tr><td id="nid"><span>nid</span></td><td><input type="text"></td><td><input type="text"></td><td><input  type="text"></td><td><input type="text"></td><td><input  type="text"></td><td id="action"><a class="btn btn-success add">保存</a> | <a class="btn btn-danger del">删除</a></td></tr>')
-
+    $("tbody").append('<tr><td id="nid"><span>0</span></td><td><input type="text"></td><td><input type="text"></td><td><input  type="text"></td><td><input type="text"></td><td><input  type="text"></td><td id="action"><a class="btn btn-success add">保存</a> | <a class="btn btn-danger del">删除</a></td></tr>')
+    $(".addshow").attr("disabled","disabled");
 });
 
 $(document).on("click", ".add", function () {
@@ -83,5 +84,15 @@ $(document).on("click", ".add", function () {
     url = "/add/";
     vali_ajax(url, post_data);
     window.location.reload();
+    $(".addshow").removeAttribute("disabled","disabled");
+});
 
+
+$(document).on("click",".page_go",function () {
+
+    page_num=$(this).text();
+    alert(page_num);
+    post_data={page_num:page_num};
+    url="/hosts/";
+    vali_ajax(url,post_data);
 });
