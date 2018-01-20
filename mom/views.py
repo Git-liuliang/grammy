@@ -14,12 +14,13 @@ def login(request):
         return render(request, "index.html")
 
     else:
-        return HttpResponse("aaaaaa")
+        return render(request, "login.html",{"error":"用户名或密码错误！"})
 
 def hosts(request):
     if request.method == "POST":
         num = int(request.POST.get("page_num"))
-        v= models.Inventory.objects.all()[0+num:5+num]
+        print(num)
+        v= models.Inventory.objects.all().order_by("-id")[5*num-1:5*num+4]
     else:
         v = models.Inventory.objects.all().order_by("-id")[0:5]
     return render(request,"hosts.html",{"host_list":v})
@@ -45,6 +46,19 @@ def add(request):
     print(mod_dict)
     models.Inventory.objects.create(**mod_dict)
     return redirect("/hosts/")
+
+def reg(request):
+    if request.method == "POST":
+        v = request.POST
+        dupcate = models.Userinfo.objects.filter(email=v.get("email")).first()
+        if dupcate:
+            return render(request,"registry.html",{"error":"email已经被使用！"})
+        else:
+            user_dict = {"username":v.get("username"),"email":v.get("email"),"password":v.get("password")}
+            models.Userinfo.objects.create(**user_dict)
+            return render(request, "registry.html", {"error": "注册成功！"})
+    else:
+        return render(request,"registry.html")
 
 
 

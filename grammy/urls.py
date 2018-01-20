@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^mod/(\d+)/$',views.mod),
     url(r'^add/$',views.add),
     url(r'^rm/(\d+)/$',views.rm),
+    url(r'^reg/$',views.reg),
 ]

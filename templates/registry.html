@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 
 {% block conm %}
- <a href="/reg/"><input type="button" class="_nav_reg"  value="注册"></a>
+ <a href="/"><input type="button" class="_nav_reg" href="/" value="登陆"></a>
 {% endblock %}
 
 {% block content %}
     <div class="container _login">
-<form action="/login/" method="post">
+<form action="/reg/" method="post">
+
+    <div class="form-group">
+    <label for="exampleUsername">User Name</label>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <input type="text" class="form-control _login_input" id="exampleUsername" placeholder="UserName" name="username">
+  </div>
+
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
       <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
@@ -17,10 +24,8 @@
        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
     <input type="password" class="form-control _login_input" id="exampleInputPassword1" placeholder="Password" name="password">
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> 记住密码
-    </label>
+  <div >
+
       <label style="color: darkred">{{ error }}</label>
   </div>
 
