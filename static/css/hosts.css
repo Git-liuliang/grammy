@@ -40,9 +40,15 @@ input{
     width: 50px;
 }
 #action{
-    width: 150px;
+    width: 210px;
 }
 
 .page_nav{
     float: right;
 }
+
+#group_id {
+    padding: 5px;
+    border-radius: 5px;
+}
+

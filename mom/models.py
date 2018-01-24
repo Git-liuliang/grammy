@@ -10,9 +10,20 @@ class Userinfo(models.Model):
 
 class Inventory(models.Model):
     id = models.AutoField(primary_key=True)
-    host = models.CharField(max_length=64,null=False)
-    hostname = models.CharField(max_length=32,null=False)
+    host = models.GenericIPAddressField(max_length=32,null=False)
     department = models.CharField(max_length=64,null=False)
     position = models.CharField(max_length=64,null=False)
-    manager = models.CharField(max_length=64,null=False)
+    group = models.ForeignKey(to="Group",to_field="id",default=0)
 
+    def __str__(self):
+        return self.host
+
+
+class Group(models.Model):
+    id = models.AutoField(primary_key=True)
+    groupname = models.CharField(max_length=64,null=False)
+    content = models.CharField(max_length=128)
+    manager = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.groupname

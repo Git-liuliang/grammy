@@ -6,17 +6,16 @@
 
 
     <div class="_position panel panel-primary">
-    <div class="panel-heading"><a class="btn btn-info addshow" >添加</a></div>
+    <div class="panel-heading"></div>
     <div class="panel-body">
         <table class="table table-bordered" >
             <thead>
             <tr>
             <th>nid</th>
             <th>host</th>
-            <th>hostname</th>
             <th>department</th>
             <th>position</th>
-            <th>manager</th>
+            <th>group_id</th>
             <th>action</th>
             </tr>
             </thead>
@@ -25,11 +24,10 @@
             <tr>
                 <td id="nid" class="showinfo"><span>{{ obj.id }}</span></td>
                 <td class="showinfo">{{ obj.host }}</td>
-                <td class="showinfo">{{ obj.hostname }}</td>
                 <td class="showinfo">{{ obj.department }}</td>
                 <td class="showinfo">{{ obj.position }}</td>
-                <td class="showinfo">{{ obj.manager }}</td>
-                <td id="action" class="showinfo"><a class="btn btn-primary edit">编辑</a> | <a class="btn btn-danger del">删除</a></td>
+                <td class="showinfo">{{ obj.group_id }}</td>
+                <td id="action" class="showinfo"><a class="btn btn-primary edit" href="/edit/{{ obj.id }}">编辑</a> | <a class="btn btn-danger del">删除</a> | <a class="btn btn-info" href="/add/" >添加</a></td>
             </tr>
             {% endfor %}
 

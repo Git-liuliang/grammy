@@ -21,8 +21,8 @@ urlpatterns = [
     url(r'^$',views.homepage),
     url(r'^login/',views.login),
     url(r'^hosts/',views.hosts),
-    url(r'^mod/(\d+)/$',views.mod),
     url(r'^add/$',views.add),
     url(r'^rm/(\d+)/$',views.rm),
     url(r'^reg/$',views.reg),
+    url(r'^edit/(\d+)/$',views.edit),
 ]

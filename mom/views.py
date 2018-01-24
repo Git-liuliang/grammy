@@ -25,12 +25,7 @@ def hosts(request):
         v = models.Inventory.objects.all().order_by("-id")[0:5]
     return render(request,"hosts.html",{"host_list":v})
 
-def mod(request,nid):
-    v = request.POST
-    mod_dict = {"host":v.get("host"),"hostname":v.get("hostname"),"department":v.get("department"),"position":v.get("position"),"manager":v.get("manager")}
-    print(mod_dict)
-    models.Inventory.objects.filter(id=nid).update(**mod_dict)
-    return redirect("/hosts/")
+
 
 
 def rm(request,nid):
@@ -40,12 +35,17 @@ def rm(request,nid):
 
 
 def add(request):
-    v = request.POST
-    mod_dict = {"host": v.get("host"), "hostname": v.get("hostname"), "department": v.get("department"),
-                "position": v.get("position"), "manager": v.get("manager")}
-    print(mod_dict)
-    models.Inventory.objects.create(**mod_dict)
-    return redirect("/hosts/")
+    if request.method == "POST":
+        v = request.POST
+        mod_dict = {"host": v.get("host"), "department": v.get("department"),
+                    "position": v.get("position"),"group_id": v.get("group_id")}
+        print(mod_dict)
+        models.Inventory.objects.create(**mod_dict)
+        return redirect("/hosts/")
+
+    group_list = models.Group.objects.all()
+
+    return render(request, "add.html", locals())
 
 def reg(request):
     if request.method == "POST":
@@ -60,5 +60,22 @@ def reg(request):
     else:
         return render(request,"registry.html")
 
+
+def edit(request,nid):
+    if request.method == "POST":
+
+        v = request.POST
+        mod_dict = {"host": v.get("host"), "department": v.get("department"),
+                    "position": v.get("position"), "group_id": v.get("group_id")}
+        print(mod_dict)
+        models.Inventory.objects.filter(id=nid).update(**mod_dict)
+        return redirect("/hosts/")
+
+
+    edit_content = models.Inventory.objects.filter(id=nid).first()
+
+    group_list = models.Group.objects.all()
+
+    return render(request,"edit.html",locals())
 
 

@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/hosts.css">
+{% endblock %}
+{% block content %}
+
+
+
+
+<div class="_position panel panel-primary">
+    <div class="panel-heading"><a class="btn btn-info" >编辑页面</a></div>
+    <div class="panel-body">
+    <form action="/edit/{{ edit_content.id }}/" method="post" class="form-horizontal">
+
+         <div class="form-group">
+    <label for="nid" class="col-sm-2 control-label">nid</label>
+    <div class="col-sm-7">
+      <input type="text" disabled="disabled" class="form-control" id="nid" name="nid" placeholder={{ edit_content.id }}>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="host" class="col-sm-2 control-label">host</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="host" name="host" value={{ edit_content.host }} placeholder={{ edit_content.host }} >
+    </div>
+  </div>
+
+        <div class="form-group">
+    <label for="department" class="col-sm-2 control-label">department</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="department" name="department" value={{ edit_content.department }} placeholder={{ edit_content.department }} >
+    </div>
+  </div>
+
+
+        <div class="form-group">
+    <label for="position" class="col-sm-2 control-label">position</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="position" name="position" value={{ edit_content.position }} placeholder={{ edit_content.position }} >
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="group_id" class="col-sm-2 control-label">group_id</label>
+    <div class="col-sm-7">
+    <select name="group_id" id="group_id" >
+       {% for group in group_list %}
+
+           {% if edit_content.group_id == group.id %}
+           <option class="group_id_option" selected value={{ group.id }}>{{ group.groupname }}</option>
+           {% else %}
+           <option class="group_id_option" value={{ group.id }}>{{ group.groupname }}</option>
+           {% endif %}
+        {% endfor %}
+    </select>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-success">保存</button>
+        <a type="reset" class="btn btn-info" href="/hosts/">取消</a>
+    </div>
+
+  </div>
+
+
+    </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block js %}
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script src="/static/js/hosts.js"></script>
+{% endblock %}

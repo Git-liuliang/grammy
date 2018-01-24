@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/hosts.css">
+{% endblock %}
+{% block content %}
+
+
+
+
+<div class="_position panel panel-primary">
+    <div class="panel-heading"><a class="btn btn-info" >添加页面</a></div>
+    <div class="panel-body">
+    <form action="/add/" method="post" class="form-horizontal">
+
+  <div class="form-group">
+    <label for="host" class="col-sm-2 control-label">host</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="host" name="host"  placeholder="host" >
+    </div>
+  </div>
+
+        <div class="form-group">
+    <label for="department" class="col-sm-2 control-label">department</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="department" name="department"  placeholder="department" >
+    </div>
+  </div>
+
+
+        <div class="form-group">
+    <label for="position" class="col-sm-2 control-label">position</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="position" name="position"  placeholder="position" >
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label for="group_id" class="col-sm-2 control-label">group_id</label>
+    <div class="col-sm-7">
+    <select name="group_id" id="group_id" >
+       {% for group in group_list %}
+
+
+           <option class="group_id_option" value={{ group.id }}>{{ group.groupname }}</option>
+
+        {% endfor %}
+    </select>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-success">保存</button>
+        <a type="reset" class="btn btn-info" href="/hosts/">取消</a>
+    </div>
+
+  </div>
+
+
+    </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block js %}
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script src="/static/js/hosts.js"></script>
+{% endblock %}
